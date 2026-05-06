@@ -1,0 +1,21 @@
+}
+{
+  "name": "SONHEI",
+  "short_name": "SONHEI",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0F0B1F",
+  "theme_color": "#5B3DF5",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
