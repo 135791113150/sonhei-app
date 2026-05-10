@@ -1,14 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#5B3DF5">
 
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0F0B1F;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.logo {
+  width: 120px;
+  margin-top: 30px;
+}
+
+h1 {
+  margin: 10px 0;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  margin: 8px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+button {
+  width: 85%;
+  padding: 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #5B3DF5;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #7a5cff;
+}
+</style>
+
 </head>
 
-<body style="margin:0; background:#0F0B1F; text-align:center;">
+<body>
 
-<img src="assets/icon.png" width="200" style="margin-top:50px;">
+<div class="container">
 
-<h1 style="color:white;">SONHEI</h1>
-<p style="color:gray;">App em construção</p>
+<img src="assets/icon.png" class="logo">
+
+<h1>SONHEI</h1>
+
+<p>Sua sorte, seu sonho</p>
+
+<input type="number" placeholder="Unidade">
+<input type="number" placeholder="Dezena">
+<input type="number" placeholder="Centena">
+<input type="number" placeholder="Milhar">
+
+<input type="date">
+
+<input type="number" placeholder="Quantidade de aposta">
+
+<button onclick="alert('Aposta registrada!')">JOGAR</button>
+
+</div>
 
 <script>
 if ('serviceWorker' in navigator) {
