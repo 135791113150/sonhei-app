@@ -96,13 +96,12 @@ async function jogar() {
 
   const inputs = document.querySelectorAll('input');
 
-  const unidade = inputs[0].value;
-  const dezena = inputs[1].value;
-  const centena = inputs[2].value;
-  const milhar = inputs[3].value;
-  const data = inputs[4].value;
-  const quantidade = inputs[5].value;
-
+  const unidade = inputs[0].value ? parseInt(inputs[0].value) : null;
+const dezena = inputs[1].value ? parseInt(inputs[1].value) : null;
+const centena = inputs[2].value ? parseInt(inputs[2].value) : null;
+const milhar = inputs[3].value ? parseInt(inputs[3].value) : null;
+const data = inputs[4].value || null;
+const quantidade = inputs[5].value ? parseInt(inputs[5].value) : null;
   const { data: result, error } = await cliente
     .from('apostas')
     .insert([
