@@ -86,11 +86,48 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-const SUPABASE_URL = "https://xxxx.supabase.co";
+ <script>
+const SUPABASE_URL = "https://xxxxx.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcnF5YXh6ZHhiZ3BmcWthdG16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjI1ODcsImV4cCI6MjA5NDA5ODU4N30.u0Q9qaHHfs-ptm6D7sJMBsI701ilIgKh3I9Y8_ucygo";
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const cliente = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function jogar() {
+
+  const inputs = document.querySelectorAll('input');
+
+  const unidade = inputs[0].value;
+  const dezena = inputs[1].value;
+  const centena = inputs[2].value;
+  const milhar = inputs[3].value;
+  const data = inputs[4].value;
+  const quantidade = inputs[5].value;
+
+  const { data: result, error } = await cliente
+    .from('apostas')
+    .insert([
+      {
+        unidade,
+        dezena,
+        centena,
+        milhar,
+        data,
+        quantidade
+      }
+    ]);
+
+  if (error) {
+    alert("Erro ao salvar!");
+    console.log(error);
+  } else {
+    alert("Aposta salva com sucesso!");
+    limpar();
+  }
+}
+
+function limpar() {
+  document.querySelectorAll('input').forEach(input => input.value = '');
+}
 </script>
 </body>
 </html>
