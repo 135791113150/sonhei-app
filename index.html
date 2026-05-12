@@ -90,7 +90,7 @@ if ('serviceWorker' in navigator) {
 const SUPABASE_URL = "https://earqyaxzdxbgpfqkatmz.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcnF5YXh6ZHhiZ3BmcWthdG16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjI1ODcsImV4cCI6MjA5NDA5ODU4N30.u0Q9qaHHfs-ptm6D7sJMBsI701ilIgKh3I9Y8_ucygo";
 
-const cliente = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function jogar() {
 
