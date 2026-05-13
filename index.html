@@ -96,10 +96,10 @@ async function jogar() {
 
   const inputs = document.querySelectorAll('input');
 
-  const unidade = inputs[0].value ? parseInt(inputs[0].value) : null;
-const dezena = inputs[1].value ? parseInt(inputs[1].value) : null;
-const centena = inputs[2].value ? parseInt(inputs[2].value) : null;
-const milhar = inputs[3].value ? parseInt(inputs[3].value) : null;
+const unidade = inputs[0].value ? parseInt(inputs[0].value) : 0;
+const dezena = inputs[1].value ? parseInt(inputs[1].value) : 0;
+const centena = inputs[2].value ? parseInt(inputs[2].value) : 0;
+const milhar = inputs[3].value ? parseInt(inputs[3].value) : 0;
 const data = inputs[4].value || null;
 const quantidade = inputs[5].value ? parseInt(inputs[5].value) : null;
   const { data: result, error } = await cliente
