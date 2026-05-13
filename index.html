@@ -96,24 +96,45 @@ async function jogar() {
 
   const inputs = document.querySelectorAll('input');
 
-const unidade = inputs[0].value ? parseInt(inputs[0].value) : 0;
-const dezena = inputs[1].value ? parseInt(inputs[1].value) : 0;
-const centena = inputs[2].value ? parseInt(inputs[2].value) : 0;
-const milhar = inputs[3].value ? parseInt(inputs[3].value) : 0;
-const data = inputs[4].value || null;
-const quantidade = inputs[5].value ? parseInt(inputs[5].value) : null;
-  const { data: result, error } = await cliente
-    .from('apostas')
-    .insert([
-      {
-        unidade,
-        dezena,
-        centena,
-        milhar,
-        data,
-        quantidade
-      }
-    ]);
+const unidade = 0;
+
+const dezena = inputs[0].value ? parseInt(inputs[0].value) : 0;
+const centena = inputs[1].value ? parseInt(inputs[1].value) : 0;
+const milhar = inputs[2].value ? parseInt(inputs[2].value) : 0;
+
+const numeroJogado =
+  milhar || centena || dezena || unidade;
+
+const agora = new Date();
+
+const dataHora =
+  agora.getFullYear().toString() +
+  String(agora.getMonth() + 1).padStart(2, '0') +
+  String(agora.getDate()).padStart(2, '0') +
+  "_" +
+  String(agora.getHours()).padStart(2, '0') +
+  String(agora.getMinutes()).padStart(2, '0') +
+  String(agora.getSeconds()).padStart(2, '0') +
+  String(Math.floor(agora.getMilliseconds() / 10)).padStart(2, '0');
+
+const numeroRegistro = 1000000 + Date.now().toString().slice(-6);
+
+const data = `${numeroRegistro}_${dataHora}_${numeroJogado}`;
+
+const quantidade = 1;
+
+const { data: result, error } = await cliente
+  .from('apostas')
+  .insert([
+    {
+      unidade,
+      dezena,
+      centena,
+      milhar,
+      data,
+      quantidade
+    }
+  ]);
 
   if (error) {
   alert("Erro: " + error.message);
