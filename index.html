@@ -147,6 +147,16 @@ if (result && result.length > 0) {
     .eq('id', numeroRegistro);
 }
 
+if (error) {
+  alert("Erro: " + error.message);
+  console.log(error);
+} else {
+  alert("Aposta salva com sucesso!");
+  limpar();
+}
+
+}
+
 function limpar() {
   document.querySelectorAll('input').forEach(input => input.value = '');
 }
