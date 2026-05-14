@@ -102,9 +102,7 @@ const dezena = numero <= 99 ? numero : 0;
 const centena = numero >= 100 && numero <= 999 ? numero : 0;
 const milhar = numero >= 1000 ? numero : 0;
 
-const numeroJogado = String(
-  milhar || centena || dezena || unidade
-).padStart(4, '0');
+const numeroJogado = String(numero).padStart(4, '0');
 
 const agora = new Date();
 
