@@ -97,7 +97,10 @@ async function jogar() {
 const unidade = 0;
 
 const numero = inputs[0].value ? parseInt(inputs[0].value) : 0;
-
+if (numero > 9999) {
+  alert("O número máximo permitido é 9999");
+  return;
+}
 const dezena = numero <= 99 ? numero : 0;
 const centena = numero >= 100 && numero <= 999 ? numero : 0;
 const milhar = numero >= 1000 ? numero : 0;
