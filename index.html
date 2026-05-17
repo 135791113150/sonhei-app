@@ -76,12 +76,21 @@ button:hover {
 
 <p>Sua sorte, seu sonho</p>
 
+<div style="display:flex; justify-content:center; gap:6px; margin-bottom:8px;">
+  <button type="button" class="botao-pequeno">Saldo</button>
+  <button type="button" class="botao-pequeno">Recarga</button>
+</div>
+
 <input 
   type="tel"
   placeholder="WhatsApp com DDD"
   id="telefone"
-
 >
+
+<div style="display:flex; justify-content:center; gap:6px; margin-top:10px; margin-bottom:8px;">
+  <button type="button" class="botao-pequeno">Valor da aposta</button>
+  <button type="button" class="botao-pequeno">Nível da aposta</button>
+</div>
 
 <input
   type="number"
@@ -89,7 +98,6 @@ button:hover {
   min="0"
   max="9999"
 >
-
 <button onclick="jogar()">BRINCAR (JOGAR)</button>
 <button onclick="limpar()">LIMPAR</button>
 
