@@ -76,26 +76,26 @@ button:hover {
 
 <p>Sua sorte, seu sonho</p>
 
-<input type="tel" placeholder="WhatsApp com DDD" id="telefone">
-
-
 <input 
-  type="number"
+  type="tel"
   placeholder="WhatsApp com DDD"
   id="telefone"
-  max="99999999999"
+  maxlength="11"
+>
 
-const telefone = document.getElementById('telefone').value;
-
-if (telefone.length !== 11) {
-  alert("O WhatsApp deve conter 11 números com DDD");
-  return;
-}
+<input
+  type="number"
+  placeholder="Inserir: Dezena ou Centena ou Milhar"
+  max="9999"
+>
 
 <button onclick="jogar()">BRINCAR (JOGAR)</button>
 <button onclick="limpar()">LIMPAR</button>
+
 <br>
+
 <button class="botao-legenda" onclick="legenda()">Legenda</button>
+
 </div>
 
 <script>
