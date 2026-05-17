@@ -128,7 +128,12 @@ if (telefone.length < 11) {
 
 const unidade = 0;
 
-const numero = inputs[1].value ? parseInt(inputs[1].value) : 0;
+if (!inputs[1].value) {
+  alert("Inserir seu jogo no campo de aposta");
+  return;
+}
+
+const numero = parseInt(inputs[1].value);
 
 if (numero >= 0 && numero <= 9) {
   inputs[1].value = String(numero).padStart(2, '0');
