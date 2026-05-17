@@ -108,12 +108,28 @@ button:hover {
   min="0"
   max="9999"
 >
-<button onclick="jogar()">BRINCAR (JOGAR)</button>
-<button onclick="limpar()">LIMPAR</button>
+<div style="display:flex; justify-content:center; gap:6px; margin-top:15px;">
 
-<br>
+  <button 
+    onclick="jogar()" 
+    style="width:43%;">
+    BRINCAR (JOGAR)
+  </button>
 
-<button class="botao-legenda" onclick="legenda()">Legenda</button>
+  <button 
+    onclick="limpar()" 
+    style="width:28%;">
+    LIMPAR
+  </button>
+
+  <button 
+    class="botao-legenda"
+    onclick="legenda()" 
+    style="width:28%; margin-top:0;">
+    Legenda
+  </button>
+
+</div>
 
 </div>
 
