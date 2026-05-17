@@ -112,6 +112,13 @@ const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function jogar() {
 
+const telefone = document.getElementById('telefone').value;
+
+ if (telefone.length !== 11) {
+  alert("O WhatsApp deve conter 11 números com DDD");
+  return;
+} 
+  
   const inputs = document.querySelectorAll('input');
 
 const unidade = 0;
