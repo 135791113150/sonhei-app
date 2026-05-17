@@ -126,6 +126,9 @@ const unidade = 0;
 
 const numero = inputs[1].value ? parseInt(inputs[1].value) : 0;
 
+if (numero >= 0 && numero <= 9) {
+  inputs[1].value = String(numero).padStart(2, '0');
+}
 if (!inputs[1].value) {
   alert("Informe o número da aposta");
   return;
