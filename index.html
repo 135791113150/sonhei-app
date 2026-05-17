@@ -80,7 +80,7 @@ button:hover {
   type="tel"
   placeholder="WhatsApp com DDD"
   id="telefone"
-  maxlength="11"
+
 >
 
 <input
@@ -115,10 +115,15 @@ async function jogar() {
 
 const telefone = document.getElementById('telefone').value;
 
- if (telefone.length !== 11) {
+if (telefone.length > 11) {
+  alert("Números excedidos, confira novamente");
+  return;
+}
+
+if (telefone.length < 11) {
   alert("O WhatsApp deve conter 11 números com DDD");
   return;
-} 
+}
   
   const inputs = document.querySelectorAll('input');
 
