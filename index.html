@@ -150,8 +150,8 @@ if (result && result.length > 0) {
 
   const numeroRegistro = result[0].id;
 
-  const dataFinal =
-    `${numeroRegistro}_${dataHora}_${numeroJogado}`;
+ const dataFinal =
+  `${numeroRegistro}_${dataHora}_${telefone}_${numeroJogado}`;
 
   await cliente
     .from('apostas')
