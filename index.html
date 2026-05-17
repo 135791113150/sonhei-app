@@ -85,8 +85,12 @@ button:hover {
   id="telefone"
   max="99999999999"
 
+const telefone = document.getElementById('telefone').value;
 
-
+if (telefone.length !== 11) {
+  alert("O WhatsApp deve conter 11 números com DDD");
+  return;
+}
 
 <button onclick="jogar()">BRINCAR (JOGAR)</button>
 <button onclick="limpar()">LIMPAR</button>
