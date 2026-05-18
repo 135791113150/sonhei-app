@@ -340,12 +340,13 @@ if (result && result.length > 0) {
  const dataFinal =
   `${numeroRegistro}_${dataHora}_${telefone}_${numeroJogado}`;
 
- await cliente
+await cliente
   .from('apostas')
   .update({
     data: dataFinal,
     telefone: telefone,
-    aposta: numeroJogado
+    aposta: numeroJogado,
+    recarga: recarga
   })
     .eq('id', numeroRegistro);
 }
