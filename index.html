@@ -310,7 +310,7 @@ if (telefone.length < 11) {
   return;
 }
   
- const unidade = 0;
+const unidade = 0;
 
 const campoAposta = document.getElementById('aposta');
 
@@ -324,17 +324,12 @@ const numero = parseInt(campoAposta.value);
 if (numero >= 0 && numero <= 9) {
   campoAposta.value = String(numero).padStart(2, '0');
 }
-  
-if (!inputs[1].value) {
-  alert("Informe o número da aposta");
-  return;
-}
 
 if (numero < 0) {
   alert("Não é permitido número negativo");
   return;
 }
-  
+
 if (numero > 9999) {
   alert("O número máximo permitido é 9999");
   return;
