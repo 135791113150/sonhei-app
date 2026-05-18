@@ -254,6 +254,12 @@ const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function jogar() {
 
+const telefone = document.getElementById('telefone').value; 
+
+const recarga = document.getElementById('recarga').value
+  ? parseFloat(document.getElementById('recarga').value)
+  : 0;
+
 const telefone = document.getElementById('telefone').value;
 
 if (telefone.length > 11) {
