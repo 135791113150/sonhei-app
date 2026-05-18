@@ -310,20 +310,21 @@ if (telefone.length < 11) {
   return;
 }
   
-  const inputs = document.querySelectorAll('input');
+ const unidade = 0;
 
-const unidade = 0;
+const campoAposta = document.getElementById('aposta');
 
-if (!inputs[1].value) {
+if (!campoAposta.value) {
   alert("Inserir seu jogo no campo de aposta");
   return;
 }
 
-const numero = parseInt(inputs[1].value);
+const numero = parseInt(campoAposta.value);
 
 if (numero >= 0 && numero <= 9) {
-  inputs[1].value = String(numero).padStart(2, '0');
+  campoAposta.value = String(numero).padStart(2, '0');
 }
+  
 if (!inputs[1].value) {
   alert("Informe o número da aposta");
   return;
