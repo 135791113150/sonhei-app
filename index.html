@@ -376,19 +376,19 @@ if (result && result.length > 0) {
 
   const numeroRegistro = result[0].id;
 
- const dataFinal =
-  `${numeroRegistro}_${dataHora}_${telefone}_${numeroJogado}`;
+  const dataFinal =
+    `${numeroRegistro}_${dataHora}_${telefone}_${numeroJogado}`;
 
-await cliente
-  .from('apostas')
-  .update({
-    data: dataFinal,
-    telefone: telefone,
-    aposta: numeroJogado,
-    recarga: recarga
-  })
+  await cliente
+    .from('apostas')
+    .update({
+      data: dataFinal,
+      telefone: telefone,
+      aposta: numeroJogado,
+      recarga: recarga
+    })
     .eq('id', numeroRegistro);
-
+}
 
 if (error) {
   alert("Erro: " + error.message);
@@ -401,13 +401,19 @@ if (error) {
 }
 
 function limpar() {
-  document.querySelectorAll('input').forEach(input => input.value = '');
+
+  document.querySelectorAll('input').forEach(input => {
+    input.value = '';
+  });
+
+  document.getElementById('saldo').innerText =
+    "Saldo: 0";
 }
 
 function legenda() {
   alert("Só brinque se você for maior de 18 anos.");
-}   
-   
+}
+
 </script>
 </body>
 </html>
