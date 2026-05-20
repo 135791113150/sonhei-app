@@ -453,6 +453,85 @@ function limpar() {
     "Saldo: 0";
 }
 
+function mostrarNivel() {
+  const numero = parseInt(document.getElementById("aposta").value);
+  const valor = parseFloat(document.getElementById("valorAposta").value);
+
+  if (!numero || numero < 0) {
+    alert("Insira um número de aposta válido.");
+    return;
+  }
+
+  if (!valor || valor <= 0) {
+    alert("Insira um valor válido.");
+    return;
+  }
+
+  let nivel = "";
+  let minimo = 0;
+
+  // ----------- DEZENA -----------
+  if (numero >= 1 && numero <= 99) {
+    minimo = 0.25;
+
+    if (valor < minimo) {
+      alert("Valor mínimo para dezenas é 0,25");
+      return;
+    }
+
+    if (valor == 2.00) nivel = "Cheia";
+    else if (valor >= 1.50 && valor <= 1.99) nivel = "Parcial";
+    else if (valor >= 1.00 && valor <= 1.49) nivel = "Meia";
+    else if (valor >= 0.50 && valor <= 0.99) nivel = "Rasa";
+    else if (valor >= 0.25 && valor <= 0.49) nivel = "Seca";
+  }
+
+  // ----------- CENTENA -----------
+  else if (numero >= 100 && numero <= 999) {
+    minimo = 0.50;
+
+    if (valor < minimo) {
+      alert("Valor mínimo para centenas é 0,50");
+      return;
+    }
+
+    if (valor == 5.00) nivel = "Cheia";
+    else if (valor >= 3.75 && valor <= 4.99) nivel = "Parcial";
+    else if (valor >= 2.50 && valor <= 3.74) nivel = "Meia";
+    else if (valor >= 1.25 && valor <= 2.49) nivel = "Rasa";
+    else if (valor >= 0.50 && valor <= 1.24) nivel = "Seca";
+  }
+
+  // ----------- MILHAR -----------
+  else if (numero >= 1000 && numero <= 9999) {
+    minimo = 1.25;
+
+    if (valor < minimo) {
+      alert("Valor mínimo para milhares é 1,25");
+      return;
+    }
+
+    if (valor == 10.00) nivel = "Cheia";
+    else if (valor >= 7.50 && valor <= 9.99) nivel = "Parcial";
+    else if (valor >= 5.00 && valor <= 7.49) nivel = "Meia";
+    else if (valor >= 2.50 && valor <= 4.99) nivel = "Rasa";
+    else if (valor >= 1.25 && valor <= 2.49) nivel = "Seca";
+  }
+
+  // Número fora de qualquer categoria
+  else {
+    alert("Número inválido.");
+    return;
+  }
+
+  document.getElementById("resultadoNivel").innerText = nivel;
+  document.getElementById("modalNivel").style.display = "flex";
+}
+
+function fecharNivel() {
+  document.getElementById("modalNivel").style.display = "none";
+}
+   
 function legenda() {
   alert("Só brinque se você for maior de 18 anos.");
 }
