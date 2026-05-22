@@ -505,17 +505,16 @@ function atualizarNivelAposta() {
     else nivel = "Seca";
   }
 
-  painel.innerText = "Nível: " + nivel;
-}
-
   else {
-    alert("Número inválido.");
+    painel.innerText = "Nível: Número inválido.";
     return;
   }
 
-  document.getElementById("resultadoNivel").innerText = nivel;
-  document.getElementById("modalNivel").style.display = "flex";
+  painel.innerText = "Nível: " + nivel;
 }
+
+document.getElementById("aposta").addEventListener("input", atualizarNivelAposta);
+document.getElementById("valorAposta").addEventListener("input", atualizarNivelAposta);
 
 function fecharNivel() {
   document.getElementById("modalNivel").style.display = "none";
