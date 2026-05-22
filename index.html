@@ -474,6 +474,11 @@ function atualizarNivelAposta() {
   
   // DEZENA
   if (numero >= 1 && numero <= 99) {
+  if (valor > 2.00) {
+    nivel = "+Cheia";
+    painel.innerText = "Nível: " + nivel;
+    return;
+  }
     if (valor < 0.25) { painel.innerText = "Nível: Valor insuficiente"; return; }
 
     if (valor == 2.00) nivel = "Cheia";
@@ -485,6 +490,10 @@ function atualizarNivelAposta() {
 
   // CENTENA
   else if (numero >= 100 && numero <= 999) {
+     if (valor > 5.00) {
+    nivel = "+Cheia";
+    painel.innerText = "Nível: " + nivel;
+    return;
     if (valor < 0.50) { painel.innerText = "Nível: Valor insuficiente"; return; }
 
     if (valor == 5.00) nivel = "Cheia";
@@ -496,6 +505,10 @@ function atualizarNivelAposta() {
 
   // MILHAR
   else if (numero >= 1000 && numero <= 9999) {
+     if (valor > 10.00) {
+    nivel = "+Cheia";
+    painel.innerText = "Nível: " + nivel;
+    return;
     if (valor < 1.25) { painel.innerText = "Nível: Valor insuficiente"; return; }
 
     if (valor == 10.00) nivel = "Cheia";
