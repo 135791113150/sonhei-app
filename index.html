@@ -411,6 +411,36 @@ const { data: result, error } = await cliente
   ])
   .select();
 
+  // ATUALIZA / CRIA SALDO NO BANCO
+if (recarga > 0) {
+  // verifica se existe o usuário
+  const { data: usuario } = await cliente
+    .from("usuarios")
+    .select("saldo")
+    .eq("telefone", telefone)
+    .single();
+
+  if (usuario) {
+    // soma ao saldo existente
+    await cliente
+      .from("usuarios")
+      .update({
+        saldo: usuario.saldo + recarga
+      })
+      .eq("telefone", telefone);
+  } else {
+    // cria novo usuário
+    await cliente
+      .from("usuarios")
+      .insert([
+        {
+          telefone: telefone,
+          saldo: recarga
+        }
+      ]);
+  }
+}
+  
 if (result && result.length > 0) {
 
   const numeroRegistro = result[0].id;
