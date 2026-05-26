@@ -308,20 +308,25 @@ const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function atualizarSaldo() {
+async function atualizarSaldo() {
+  const telefone = document.getElementById("telefone").value;
+  if (!telefone || telefone.length < 11) {
+    document.getElementById("saldo").innerText = "Saldo: 0";
+    return;
+  }
 
-  const recarga = parseFloat(
-    document.getElementById('recarga').value
-  ) || 0;
+  // Busca saldo no Supabase
+  const { data, error } = await cliente
+    .from("usuarios")
+    .select("saldo")
+    .eq("telefone", telefone)
+    .single();
 
-  const valorAposta = parseFloat(
-    document.getElementById('valorAposta').value
-  ) || 0;
-
-  const saldo = recarga - valorAposta;
-
-  document.getElementById('saldo').innerText =
-    "Saldo: " + saldo.toFixed(2);
+  if (data) {
+    document.getElementById("saldo").innerText = "Saldo: " + data.saldo.toFixed(2);
+  } else {
+    document.getElementById("saldo").innerText = "Saldo: 0";
+  }
 }
    
 async function jogar() {
