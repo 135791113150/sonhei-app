@@ -177,52 +177,19 @@ button:hover {
 </div>
 
 <div 
-  style="
-    display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap:6px;
-    margin-top:10px;
-    margin-bottom:8px;
-  "
+  style="display:flex; justify-content:center; align-items:stretch; gap:6px; margin-top:10px; margin-bottom:8px;"
 >
-
-  <input
-    type="number"
-    placeholder="Inserir aposta"
-    id="aposta"
-    min="0"
-    max="9999"
-    style="
-      width:50%;
-      height:52px;
-      padding:12px;
-      border-radius:10px;
-      border:none;
-      font-size:16px;
-      box-sizing:border-box;
-      margin:0;
-    "
+  <input 
+    type="number" id="campoValor" placeholder="Valor por unidade"
+    style="width: 140px; text-align:center; font-weight:bold; padding:10px;"
   >
+  <input 
+    type="number" id="campoQtd" placeholder="Qtd"
+    style="width: 90px; text-align:center; font-weight:bold; padding:10px;"
+  >
+</div>
 
- <input 
-  type="number"
-  placeholder="Valor"
-  id="valorAposta"
-  min="0"
-  oninput="atualizarSaldo()"
-  style="
-    width:25%;
-    height:52px;
-    border-radius:10px;
-    border:none;
-    font-size:14px;
-    text-align:center;
-    box-sizing:border-box;
-    margin:0;
-  "
->
-
+<!-- AGORA FORA DO BLOCO! -->
 <div id="painelNivel"
   style="
     width:85%;
