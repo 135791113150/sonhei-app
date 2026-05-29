@@ -199,50 +199,28 @@ button:hover {
 
 
 
- <input 
-  type="number" 
-  id="aposta" 
-  placeholder="Número da aposta"
-  style="
-    width: 85%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    text-align: center;
-  ">
-  
-<input 
-  type="number" 
-  id="valorAposta" 
-  placeholder="Valor da aposta"
-  style="
-    width: 85%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    text-align: center;
-  "> 
-  
-<div id="painelNivel"
-  style="
-    width:85%;
-    margin:auto;
-    margin-top:15px;
-    background:#1E1E1E;
-    color:#00FF88;
-    padding:14px;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-    text-align:center;
-    box-sizing:border-box;
-  "
->
-  Nível: —
+ <div class="linha-aposta">
+  <input 
+    type="number" 
+    id="aposta"
+    placeholder="Aposta"
+    class="input-aposta"
+  >
+
+  <input 
+    type="number" 
+    id="valorAposta"
+    placeholder="Valor"
+    class="input-aposta"
+  >
+
+  <div 
+    id="painelNivel"
+    class="input-aposta"
+    style="background:#1E1E1E; color:#00FF88; display:flex; align-items:center; justify-content:center;"
+  >
+    Nível: —
+  </div>
 </div>
 </div>
 <div class="botoes-container">
