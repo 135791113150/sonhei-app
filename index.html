@@ -421,6 +421,10 @@ if (recarga > 0) {
         }
       ]);
   }
+
+// Atualiza o saldo exibido na tela após salvar a recarga
+document.getElementById("saldo").innerText = "Saldo: " + (usuario ? (usuario.saldo + recarga).toFixed(2) : recarga.toFixed(2));
+  
 }
   
 if (result && result.length > 0) {
