@@ -298,7 +298,20 @@ async function atualizarSaldo() {
     document.getElementById("saldo").innerText = "Saldo: 0";
     return;
   }
+// BUSCA SALDO ATUAL
+const { data: usuarioSaldo } = await cliente
+  .from("usuarios")
+  .select("saldo")
+  .eq("telefone", telefone)
+  .single();
 
+const saldoAtual = usuarioSaldo ? Number(usuarioSaldo.saldo) : 0;
+
+// VERIFICA SE TEM SALDO
+if (valorAposta > saldoAtual) {
+  alert("Saldo insuficiente.");
+  return;
+}
   // Busca usuário existente
   const { data, error } = await cliente
     .from("usuarios")
