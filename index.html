@@ -316,7 +316,10 @@ async function atualizarSaldo() {
 async function jogar() {
 
 const telefone = document.getElementById('telefone').value; 
-
+  
+const valorAposta = parseFloat(
+  document.getElementById('valorAposta').value
+) || 0;
 const recarga = document.getElementById('recarga').value
   ? parseFloat(document.getElementById('recarga').value)
   : 0;
