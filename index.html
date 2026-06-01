@@ -397,12 +397,18 @@ const { data: result, error } = await cliente
 
   // ATUALIZA / CRIA SALDO NO BANCO
 if (recarga > 0) {
-  // verifica se existe o usuário
-  const { data: usuario } = await cliente
+
+  console.log("Telefone:", telefone);
+  console.log("Recarga:", recarga);
+
+  const { data: usuario, error: erroUsuario } = await cliente
     .from("usuarios")
     .select("saldo")
     .eq("telefone", telefone)
     .single();
+
+  console.log("Usuário encontrado:", usuario);
+  console.log("Erro:", erroUsuario);
 
   if (usuario) {
     // soma ao saldo existente
