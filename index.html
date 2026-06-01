@@ -292,23 +292,25 @@ const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function atualizarSaldo() {
   const telefone = document.getElementById("telefone").value;
+  const recargaInput = parseFloat(document.getElementById("recarga").value) || 0;
+
   if (!telefone || telefone.length < 11) {
     document.getElementById("saldo").innerText = "Saldo: 0";
     return;
   }
 
-  // Busca saldo no Supabase
+  // Busca usuário existente
   const { data, error } = await cliente
     .from("usuarios")
     .select("saldo")
     .eq("telefone", telefone)
     .single();
 
-  if (data) {
-    document.getElementById("saldo").innerText = "Saldo: " + data.saldo.toFixed(2);
-  } else {
-    document.getElementById("saldo").innerText = "Saldo: 0";
-  }
+  let saldoAtual = data ? data.saldo : 0;
+
+  // Mostra saldo somado com recarga digitada (não salva ainda)
+  document.getElementById("saldo").innerText = "Saldo: " + (saldoAtual + recargaInput).toFixed(2);
+}
 }
    
 async function jogar() {
