@@ -319,6 +319,24 @@ const telefone = document.getElementById('telefone').value;
 const valorAposta = parseFloat(
   document.getElementById('valorAposta').value
 ) || 0;
+
+  // Busca saldo atual do usuário
+const { data: usuarioSaldo } = await cliente
+  .from("usuarios")
+  .select("saldo")
+  .eq("telefone", telefone)
+  .single();
+
+const saldoAtual = usuarioSaldo
+  ? Number(usuarioSaldo.saldo)
+  : 0;
+
+// Verifica saldo
+if (valorAposta > saldoAtual) {
+  alert("Saldo insuficiente.");
+  return;
+}
+  
 const recarga = document.getElementById('recarga').value
   ? parseFloat(document.getElementById('recarga').value)
   : 0;
