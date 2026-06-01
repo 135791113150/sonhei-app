@@ -450,6 +450,14 @@ if (recarga > 0) {
 document.getElementById("saldo").innerText = "Saldo: " + (usuario ? (usuario.saldo + recarga).toFixed(2) : recarga.toFixed(2));
   
 }
+
+  // DESCONTA A APOSTA DO SALDO
+await cliente
+  .from("usuarios")
+  .update({
+    saldo: saldoAtual - valorAposta
+  })
+  .eq("telefone", telefone);
   
 if (result && result.length > 0) {
 
