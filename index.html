@@ -308,18 +308,8 @@ const { data: usuarioSaldo } = await cliente
 const saldoAtual = usuarioSaldo ? Number(usuarioSaldo.saldo) : 0;
 
 
-  // Busca usuário existente
-  const { data, error } = await cliente
-    .from("usuarios")
-    .select("saldo")
-    .eq("telefone", telefone)
-    .single();
-
-  let saldoAtual = data ? data.saldo : 0;
-
-  // Mostra saldo somado com recarga digitada (não salva ainda)
-  document.getElementById("saldo").innerText = "Saldo: " + (saldoAtual + recargaInput).toFixed(2);
-}
+document.getElementById("saldo").innerText =
+  "Saldo: " + (saldoAtual + recargaInput).toFixed(2);
 
    
 async function jogar() {
