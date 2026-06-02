@@ -315,10 +315,24 @@ document.getElementById("saldo").innerText =
 async function jogar() {
 
 const telefone = document.getElementById('telefone').value; 
+
+const valorAposta = parseFloat(
+  document.getElementById('valorAposta').value
+);
+
+if (isNaN(valorAposta) || valorAposta <= 0) {
+  alert("Informe o valor da aposta.");
+  return;
+}  
   
 const valorAposta = parseFloat(
   document.getElementById('valorAposta').value
-) || 0;
+);
+
+if (isNaN(valorAposta) || valorAposta <= 0) {
+  alert("Informe o valor da aposta.");
+  return;
+}
 
   // Busca saldo atual do usuário
 const { data: usuarioSaldo } = await cliente
