@@ -324,7 +324,9 @@ if (isNaN(valorAposta) || valorAposta <= 0) {
   alert("Informe o valor da aposta.");
   return;
 }  
-  
+const recarga = document.getElementById('recarga').value
+  ? parseFloat(document.getElementById('recarga').value)
+  : 0;  
 
 
   // Busca saldo atual do usuário
@@ -346,9 +348,7 @@ if (valorAposta > saldoAtual) {
   return;
 }
   
-const recarga = document.getElementById('recarga').value
-  ? parseFloat(document.getElementById('recarga').value)
-  : 0;
+
 
 if (recarga < 0) {
   alert("Recarga inválida");
