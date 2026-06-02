@@ -432,7 +432,8 @@ if (recarga > 0) {
 
   if (usuario) {
     // soma ao saldo existente
-   if (saldoAtual > 0) {
+  
+ if (saldoAtual > 0) {
   await cliente
     .from("usuarios")
     .update({
