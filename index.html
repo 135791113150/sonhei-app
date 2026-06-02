@@ -334,9 +334,11 @@ const { data: usuarioSaldo } = await cliente
   .eq("telefone", telefone)
   .single();
 
-const saldoAtual = usuarioSaldo
+const saldoBanco = usuarioSaldo
   ? Number(usuarioSaldo.saldo)
   : 0;
+
+const saldoAtual = saldoBanco + recarga;
 
 // Verifica saldo
 if (valorAposta > saldoAtual) {
