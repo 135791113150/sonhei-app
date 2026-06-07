@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>Painel ADM</title>
+
+<style>
+body{
+  background:#0F0B1F;
+  color:white;
+  font-family:Arial;
+  padding:20px;
+}
+
+h2{
+  text-align:center;
+}
+
+textarea{
+  width:100%;
+  height:250px;
+  border:none;
+  border-radius:10px;
+  padding:10px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  margin-top:15px;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  background:#5B3DF5;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Painel Administrativo</h2>
+
+<textarea
+id="extrato"
+placeholder="11555554444 10
+11999998888 25
+11988887777 50">
+</textarea>
+
+<button onclick="aprovarRecargas()">
+Aprovar Recargas
+</button>
+
+<script>
+function aprovarRecargas(){
+
+  const texto =
+    document.getElementById("extrato").value;
+
+  const linhas =
+    texto.split("\n");
+
+  alert(
+    linhas.length +
+    " linhas carregadas."
+  );
+}
+</script>
+
+</body>
+</html>
+3. Envie para o GitHub
+
+Faça o commit normalmente.
+
+Exemplo:
+
+git add .
+git commit -m "Criado painel ADM"
+git push
+4. Acesse
+
+Se seu sistema está em:
+
+https://SEUUSUARIO.github.io/sonhei-app/
+
+o painel ficará em:
+
+https://SEUUSUARIO.github.io/sonhei-app/admin.html
+Próxima etapa
+
+Depois que o admin.html estiver abrindo no navegador, vamos conectá-lo ao Supabase para que o botão Aprovar Recargas:
+
+Leia o extrato colado.
+Procure as recargas pendentes.
+Mude para Aprovada.
+Credite automaticamente o saldo do usuário.
+
+Essa será a primeira versão funcional do seu painel administrativo.
