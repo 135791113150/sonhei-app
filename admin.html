@@ -57,17 +57,25 @@ Aprovar Recargas
 </button>
 
 <script>
-function aprovarRecargas(){
+  
+async function aprovarRecargas() {
 
-  const texto =
-    document.getElementById("extrato").value;
+  const { data, error } =
+    await cliente
+      .from("recargas")
+      .select("*");
 
-  const linhas =
-    texto.split("\n");
+  console.log(data);
+
+  if(error){
+    alert(error.message);
+    return;
+  }
 
   alert(
-    linhas.length +
-    " linhas carregadas."
+    "Encontradas " +
+    data.length +
+    " recargas."
   );
 }
 </script>
