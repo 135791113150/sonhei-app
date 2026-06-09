@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Painel ADM</title>
 
 <style>
@@ -42,12 +43,9 @@ Aprovar Recargas
 
 const cliente = window.supabase.createClient(
   "https://earqyaxzdxbgpfqkatmz.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...."
+  "SUA_CHAVE_ANON_COMPLETA"
 );
 
-console.log("Supabase carregado");
-console.log(cliente);
-  
 async function aprovarRecargas() {
 
   const { data, error } =
@@ -58,7 +56,6 @@ async function aprovarRecargas() {
   console.log(data);
 
   if (error) {
-    console.log(error);
     alert(error.message);
     return;
   }
