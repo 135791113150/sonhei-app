@@ -45,6 +45,9 @@ const cliente = window.supabase.createClient(
   "SUA_ANON_KEY_AQUI"
 );
 
+console.log("Supabase carregado");
+console.log(cliente);
+  
 async function aprovarRecargas() {
 
   const { data, error } =
