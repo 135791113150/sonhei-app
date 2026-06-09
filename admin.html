@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Painel ADM</title>
 
 <style>
@@ -14,29 +13,15 @@ body{
   padding:20px;
 }
 
-h2{
-  text-align:center;
-}
-
 textarea{
   width:100%;
   height:250px;
-  border:none;
-  border-radius:10px;
-  padding:10px;
-  font-size:16px;
 }
 
 button{
   width:100%;
-  margin-top:15px;
   padding:15px;
-  border:none;
-  border-radius:10px;
-  background:#5B3DF5;
-  color:white;
-  font-size:18px;
-  font-weight:bold;
+  margin-top:15px;
 }
 </style>
 </head>
@@ -45,19 +30,21 @@ button{
 
 <h2>Painel Administrativo</h2>
 
-<textarea
-id="extrato"
-placeholder="11555554444 10
-11999998888 25
-11988887777 50">
-</textarea>
+<textarea id="extrato"></textarea>
 
 <button onclick="aprovarRecargas()">
 Aprovar Recargas
 </button>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
-  
+
+const cliente = window.supabase.createClient(
+  "https://earqyaxzdxbgpfqkatmz.supabase.co",
+  "SUA_ANON_KEY_AQUI"
+);
+
 async function aprovarRecargas() {
 
   const { data, error } =
@@ -67,36 +54,16 @@ async function aprovarRecargas() {
 
   console.log(data);
 
-  if(error){
+  if (error) {
+    console.log(error);
     alert(error.message);
     return;
   }
 
-  alert(
-    "Encontradas " +
-    data.length +
-    " recargas."
-  );
+  alert("Encontradas " + data.length + " recargas");
 }
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-
-const SUPABASE_URL =
-"https://earqyaxzdxbgpfqkatmz.supabase.co";
-
-const SUPABASE_KEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhcnF5YXh6ZHhiZ3BmcWthdG16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg1MjI1ODcsImV4cCI6MjA5NDA5ODU4N30.u0Q9qaHHfs-ptm6D7sJMBsI701ilIgKh3I9Y8_ucygo";
-
-const cliente =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
 
 </script>
-  
+
 </body>
 </html>
